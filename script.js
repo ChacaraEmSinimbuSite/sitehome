@@ -103,31 +103,3 @@ terrasEmGeralButton.addEventListener("click", function(){
       });
 
 
-
-
-// Função para carregar imagens preguiçosamente
-function lazyLoadImages() {
-  const images = document.querySelectorAll('.img img');
-
-  images.forEach((image) => {
-    if (isElementInViewport(image) && !image.getAttribute('src')) {
-      image.setAttribute('src', image.getAttribute('data-src'));
-    }
-  });
-}
-
-// Função para verificar se o elemento está visível na janela
-function isElementInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
-
-// Carregar imagens preguiçosamente quando a página é carregada
-window.addEventListener('load', lazyLoadImages);
-// Carregar imagens preguiçosamente quando a página é rolada
-window.addEventListener('scroll', lazyLoadImages);
